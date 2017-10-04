@@ -1,3 +1,6 @@
+%AW: Looks good. 0.95/1.
+
+
 %Inclass assignment 8
 %Walter Frank Lenoir
 
@@ -7,12 +10,17 @@
 % B. Create a second sequence from the first one by changing the middle 20 basepairs (at positions 41-60)
     seqmid = randseq(20);
     seq2 = strcat(seq(1:39),seqmid,seq(60:100));
+    
+    %AW: ok. but this is actually positions  40-59, not 41-60.
+    
 % C. run swalign on the two sequences with the default parameters
     [score,align,start] = swalign(seq,seq2);
 % D. run swalign with much higher and lower values of the GapOpen parameter
 % and explain the results. 
     [score,align,start] = swalign(seq,seq2,'GapOpen',16);
     [score,align,start] = swalign(seq,seq2,'GapOpen',1);
+    
+    %AW. algorithm is using an aminoacid alphabet by default. Set to 'nt'. -0.05.
     
     %The alignments for the lower and higher gapopen parameter differed and
     %were both different from the original. With a higher gap
